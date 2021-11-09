@@ -9,6 +9,7 @@ body{
     max-height: 1300px;
     background-color: #ffffff;
     padding: 5px;
+    border-radius: 10px;
 }
 
 .painel{
@@ -78,4 +79,46 @@ body{
 
 .fl:hover, .opt:hover{
     background-color: #e2e2e2;
+}
+
+@media screen and (max-width: 425px){
+    .container{
+        max-width: 300px;
+        max-height: 975px;
+        padding: 4px;
+    }
+    
+    .painel{
+        width: 300px;
+        height: 90px;
+    }
+    
+    .mostrador{
+        height: 30px;
+        width: 300px;
+        font-size: 25px;
+    }
+    
+    .result{
+        height: 60px;
+        width: 300px;
+        font-size: 40px;
+    }
+    .fl{
+        width: 75px;
+        height: 60px;
+    }
+    
+    .bt .n{
+        width: 75px;
+        height: 60px;
+    }
+    
+    .bt .opt{
+        width: 75px;
+        height: 60px;
+    }
+    .n, .fl, .opt{
+        font-size: 30px;
+    }
 }
