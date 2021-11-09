@@ -157,6 +157,9 @@ const auxiliaryFunctions = {
 // Usando teclas:
 
 document.addEventListener("keydown", (e)=>{
+    if (e.code == "Numpad0" || e.code == "Digit0"){
+        mainFunctions.writeNumber(0)
+    }
     if (Number(+(e.key))){
         mainFunctions.writeNumber(+(e.key))
     }
