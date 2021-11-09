@@ -127,6 +127,7 @@ const auxiliaryFunctions = {
                 case "+": return number1 + number2;
                 case "-": return number1 - number2;
                 case "*": return number1 * number2;
+                case "x": return number1 * number2;
                 case "/": return number1 / number2;
             }
         }
