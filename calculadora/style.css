@@ -1,0 +1,81 @@
+body{
+    background-color: #101a35;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    max-width: 400px;
+    max-height: 1300px;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+.painel{
+    width: 400px;
+    height: 120px;
+    background-color:#ffffff;
+}
+
+.mostrador{
+    display: flex;
+    height: 40px;
+    width: 400px;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 30px;
+}
+
+.result{
+    display: flex;
+    height: 80px;
+    width: 400px;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 50px;
+}
+
+.first-line{
+    display: flex;
+}
+
+.fl{
+    width: 100px;
+    height: 80px;
+    background-color: #76777c;
+    margin: 0 3px 3px 3px
+}
+
+.second-line, .third-line, .fourth-line, .fifth-line {
+    display: flex;
+}
+
+.bt .n{
+    width: 100px;
+    height: 80px;
+    background-color: #e2e2e2;
+    margin:  3px 3px 3px 3px
+}
+
+.bt .opt{
+    width: 100px;
+    height: 80px;
+    background-color: #76777c;
+    margin:  3px 3px 3px 3px
+}
+
+.n, .fl, .opt{
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.n:hover{
+    background-color: #76777c;   
+}
+
+.fl:hover, .opt:hover{
+    background-color: #e2e2e2;
+}
