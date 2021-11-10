@@ -9,7 +9,7 @@ const mainFunctions = {
         auxiliaryFunctions.writeNumberAssistant.checkProprietiesAfterCalculation();
         numbers.push(number);
         auxiliaryFunctions.writeNumberAssistant.checkComma();
-        if (numbers.length <= 10){
+        if (numbers.length <= 15){
             auxiliaryFunctions.writeNumberAssistant.writeOnPrimaryDisplay();
         }else{
             return;
@@ -137,11 +137,11 @@ const auxiliaryFunctions = {
         },
         checkResultLength: (number) => {
             let numberInCheck = number.toString();
-            if (numberInCheck.length > 10){
+            if (numberInCheck.length > 15){
                 numberInCheck = numberInCheck.slice(0, 10);
                 return +(numberInCheck)
             }else{
-                return
+                return number
             }
         }
     },
