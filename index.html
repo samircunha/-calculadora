@@ -8,42 +8,42 @@
     <title>Calculator</title>
 </head>
 <body>
-    <div class="container">
-        <div class="painel">
-            <div class="mostrador">
+    <div class="calculator-body">
+        <div class="calculator-body__panel">
+            <div class="calculator-body__panel__display calculator-body__panel__display--secondary js-calculator-body__panel__display--secondary">
             </div>
-            <div class="result">
+            <div class="calculator-body__panel__display calculator-body__panel__display--primary js-calculator-body__panel__display--primary">
             </div>
         </div>
-        <div class="first-line">
-            <div class="fl ce btn" onclick="mainFunctions.ce()">CE</div>
-            <div class="fl c btn" onclick="mainFunctions.c()">C</div>
-            <div class="fl apagar btn" onclick="mainFunctions.delete()"><</div>
-            <div class="fl btn" onclick="mainFunctions.takeOperation('/')">/</div>
+        <div class="calculator-body__lines calculator-body__lines--first-line">
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.ce()">CE</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.c()">C</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.delete()"><</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.takeOperation('/')">/</div>
         </div>
-        <div class="second-line bt">
-            <div class="n btn" onclick="mainFunctions.writeNumber(7)">7</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(8)">8</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(9)">9</div>
-            <div class="opt btn" onclick="mainFunctions.takeOperation('x')">x</div>
+        <div class="calculator-body__lines calculator-body__lines--second-line bt">
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(7)">7</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(8)">8</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(9)">9</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.takeOperation('*')">x</div>
         </div>
-        <div class="third-line bt">
-            <div class="n btn" onclick="mainFunctions.writeNumber(4)">4</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(5)">5</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(6)">6</div>
-            <div class="opt btn" onclick="mainFunctions.takeOperation('-')">-</div>
+        <div class="calculator-body__lines calculator-body__lines--third-line bt">
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(4)">4</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(5)">5</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(6)">6</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.takeOperation('-')">-</div>
         </div>
-        <div class="fourth-line bt">
-            <div class="n btn" onclick="mainFunctions.writeNumber(1)">1</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(2)">2</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(3)">3</div>
-            <div class="opt btn" onclick="mainFunctions.takeOperation('+')">+</div>
+        <div class="calculator-body__lines calculator-body__lines--fourth-line bt">
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(1)">1</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(2)">2</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(3)">3</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.takeOperation('+')">+</div>
         </div>
-        <div class="fifth-line bt">
-            <div class="n btn" onclick="mainFunctions.changeValue()">+/-</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(0)">0</div>
-            <div class="n btn" onclick="mainFunctions.writeNumber(',')">,</div>
-            <div class="opt btn" onclick="mainFunctions.showResult()">=</div>
+        <div class="calculator-body__lines calculator-body__lines--fifth-line bt">
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.changeSignal()">+/-</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(0)">0</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-number" onclick="mainFunctions.writeNumber(',')">,</div>
+            <div class="calculator-body__lines__buttons calculator-body__lines__buttons--type-operational" onclick="mainFunctions.showResult()">=</div>
         </div>
     </div>
 
