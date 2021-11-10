@@ -1,56 +1,56 @@
-const result = document.querySelector('.result');
-const mostrador = document.querySelector('.mostrador');
+const primaryDisplay = document.querySelector('.js-calculator-body__panel__display--primary');
+const secundaryDisplay = document.querySelector('.js-calculator-body__panel__display--secondary');
 let numbers = [];
 let numbersInOperation = [];
-let concatNum = 0;
+let joinNumbers = 0;
 
 const mainFunctions = {
     writeNumber: (number) => {
-        auxiliaryFunctions.auxWriteNumber.checkResult();
+        auxiliaryFunctions.writeNumberAssistant.checkProprietiesAfterCalculation();
         numbers.push(number);
-        auxiliaryFunctions.auxWriteNumber.confereVirgulas();
-        if (numbers.length < 10){
-            auxiliaryFunctions.auxWriteNumber.writeOnScreen();
+        auxiliaryFunctions.writeNumberAssistant.checkComma();
+        if (numbers.length <= 10){
+            auxiliaryFunctions.writeNumberAssistant.writeOnPrimaryDisplay();
         }else{
             return;
         }
     },
     takeOperation: (operator) =>{
-        if(numbersInOperation.length == 2 && result.firstChild != null && numbers.length > 0){
-            auxiliaryFunctions.auxCalcResult.calculaResult();
+        if(numbersInOperation.length == 2 && primaryDisplay.firstChild != null && numbers.length > 0){
+            auxiliaryFunctions.calculateResultAssistant.calulateResult();
         }
         if(numbersInOperation[1]){
-            auxiliaryFunctions.auxOperation.alteraOperador(operator);
+            auxiliaryFunctions.operatingAssistant.changeOperator(operator);
             return;
         }
-        auxiliaryFunctions.auxOperation.transformaNum(operator);
-        auxiliaryFunctions.auxCalcOperations.clearElements();
+        auxiliaryFunctions.operatingAssistant.transformaNum(operator);
+        auxiliaryFunctions.calculateOperationsAssistant.clearElements();
     },
     showResult: () =>{
-        result.innerHTML = auxiliaryFunctions.auxCalcResult.calculaResult();
+        primaryDisplay.innerHTML = auxiliaryFunctions.calculateResultAssistant.calulateResult();
     },
     ce: () =>{
         numbers = [];
-        auxiliaryFunctions.auxCalcOperations.confereResult();
+        auxiliaryFunctions.calculateOperationsAssistant.checkResult();
     },
     c: () =>{
         numbers = [];
         numbersInOperation = [];
-        mostrador.innerHTML = '';
-        auxiliaryFunctions.auxCalcOperations.confereResult();
+        secundaryDisplay.innerHTML = '';
+        auxiliaryFunctions.calculateOperationsAssistant.checkResult();
     },
     delete: () =>{
         numbers.pop();
-        concatNum = numbers.join('');
-        result.innerHTML = concatNum;
+        joinNumbers = numbers.join('');
+        primaryDisplay.innerHTML = joinNumbers;
     },
-    changeValue: () =>{
+    changeSignal: () =>{
         if (numbers[0] == "-"){
             numbers.shift();
         }else{
             numbers.splice(0, 0, "-");
         }
-        auxiliaryFunctions.auxWriteNumber.writeOnScreen();
+        auxiliaryFunctions.writeNumberAssistant.writeOnPrimaryDisplay();
     }
 }
 
@@ -58,8 +58,8 @@ const mainFunctions = {
 // funções auxiliares:
 
 const auxiliaryFunctions = {
-    auxWriteNumber: {
-        confereVirgulas: () => {
+    writeNumberAssistant: {
+        checkComma: () => {
             let virgulaPrincipal = numbers.indexOf(',')+1;
             let virgulaParaConferir = numbers.indexOf(',', virgulaPrincipal);
             if(virgulaParaConferir > 0){
@@ -69,86 +69,97 @@ const auxiliaryFunctions = {
                 numbers.splice(0, 0, 0);
             }
         },
-        writeOnScreen: () => {
-            concatNum = numbers.join('');
-            result.innerHTML = concatNum;
+        writeOnPrimaryDisplay: () => {
+            joinNumbers = numbers.join('');
+            primaryDisplay.innerHTML = joinNumbers;
         },
-        checkResult: () => {
+        checkProprietiesAfterCalculation: () => {
             if(numbersInOperation.length == 1){
-                mostrador.innerHTML = '';
+                secundaryDisplay.innerHTML = '';
                 numbersInOperation = [];
-                concatNum = 0;
+                joinNumbers = 0;
             }
         }
     },
-    auxOperation: {
+    operatingAssistant: {
         transformaNum: (operator) => {
             if (numbersInOperation.length == 1){
                 numbersInOperation.push(operator);
-                auxiliaryFunctions.auxCalcOperations.showElements();
+                auxiliaryFunctions.calculateOperationsAssistant.writeOnSecondaryDisplay();
+                return;
+            } 
+            if(joinNumbers == 0){
+                inOperation(joinNumbers, operator);
                 return;
             }
-            if(concatNum == 0){
-                inOperation(concatNum, operator);
-                return;
-            }
-            let transform = +(concatNum.replace(/,/,'.'));
-            auxiliaryFunctions.auxOperation.inOperation(transform, operator);
+            let transformToNumber = +(joinNumbers.replace(/,/,'.'));
+            auxiliaryFunctions.operatingAssistant.inOperation(transformToNumber, operator);
         },
-    
-        inOperation: (number, operador) =>{
+        inOperation: (number, operator) =>{
             if(numbersInOperation.length == 0){
-                numbersInOperation.push(number, operador);
+                numbersInOperation.push(number, operator);
             }else if(numbersInOperation.length == 2){
                 numbersInOperation.push(number);
                 return;
             }
-            auxiliaryFunctions.auxCalcOperations.showElements();
+            auxiliaryFunctions.calculateOperationsAssistant.writeOnSecondaryDisplay();
         },
-    
-        alteraOperador: (operador) => {
+        changeOperator: (operator) => {
             numbersInOperation.pop();
-            numbersInOperation.push(operador);
-            auxiliaryFunctions.auxCalcOperations.showElements();
+            numbersInOperation.push(operator);
+            auxiliaryFunctions.calculateOperationsAssistant.writeOnSecondaryDisplay();
         }
     },
-    auxCalcResult: {
-        calculaResult: ()=>{
-            auxiliaryFunctions.auxOperation.transformaNum();
+    calculateResultAssistant: {
+        calulateResult: ()=>{
+            const {operations, checkResultLength} = auxiliaryFunctions.calculateResultAssistant;
+            const haveOperator = numbersInOperation[1];
+            if (!haveOperator){
+                alert("Escolha um Operação");
+                return joinNumbers;
+            }
+            auxiliaryFunctions.operatingAssistant.transformaNum();
+
+            const [first, second, third] = numbersInOperation;
     
-            let resultado = auxiliaryFunctions.auxCalcResult.operacoes(numbersInOperation[1], numbersInOperation[0], numbersInOperation[2])
+            let result = operations(second, first, third);
     
-            auxiliaryFunctions.auxCalcOperations.clearElements(resultado);
-            return resultado;
+            auxiliaryFunctions.calculateOperationsAssistant.clearElements(checkResultLength(result));
+            return checkResultLength(result);
         },
-    
-        operacoes: (string, number1, number2)=>{
+        operations: (string, number1, number2)=>{
             switch(string){
                 case "+": return number1 + number2;
                 case "-": return number1 - number2;
                 case "*": return number1 * number2;
-                case "x": return number1 * number2;
                 case "/": return number1 / number2;
+            }
+        },
+        checkResultLength: (number) => {
+            let numberInCheck = number.toString();
+            if (numberInCheck.length > 10){
+                numberInCheck = numberInCheck.slice(0, 10);
+                return +(numberInCheck)
+            }else{
+                return
             }
         }
     },
-    auxCalcOperations: {
+    calculateOperationsAssistant: {
         clearElements: (number) =>{
             numbers = [];
             if(numbersInOperation.length == 3){
                 numbersInOperation.splice(0, 3, number);
-                result.innerHTML = number;
-                auxiliaryFunctions.auxCalcOperations.showElements();
+                primaryDisplay.innerHTML = number;
+                auxiliaryFunctions.calculateOperationsAssistant.writeOnSecondaryDisplay();
             }
         },
-    
-        showElements: () =>{
-            mostrador.innerHTML = numbersInOperation.join(' ');
+        writeOnSecondaryDisplay: () =>{
+            secundaryDisplay.innerHTML = numbersInOperation.join(' ');
         },
-    
-        confereResult: () =>{
-            if (result != ''){
-                result.innerHTML = '';
+        checkResult: () =>{
+            if (primaryDisplay != ''){
+                primaryDisplay.innerHTML = '';
             }
         }
     }
@@ -157,19 +168,21 @@ const auxiliaryFunctions = {
 // --------------------------------------------------------------------------------------------------------------
 // Usando teclas:
 
-document.addEventListener("keydown", (e)=>{
-    if (e.code == "Numpad0" || e.code == "Digit0"){
-        mainFunctions.writeNumber(0)
+document.addEventListener("keydown", ({key})=>{
+    const typedNumber = Number.parseInt(key);
+    const validInteger = !isNaN(typedNumber)
+
+    if (validInteger){
+        mainFunctions.writeNumber(typedNumber)
     }
-    if (Number(+(e.key))){
-        mainFunctions.writeNumber(+(e.key))
-    }
-    let expr = e.key;
-    switch(expr){
-        case "+": mainFunctions.takeOperation('+'); break;
-        case "-": mainFunctions.takeOperation('-'); break;
-        case "*": mainFunctions.takeOperation('*'); break;
-        case "/": mainFunctions.takeOperation('/'); break;
+
+    switch(key){
+        case "+": 
+        case "-": 
+        case "*": 
+        case "/": 
+            mainFunctions.takeOperation(key);
+            break;
         case ",": mainFunctions.writeNumber(','); break;
         case "Enter": mainFunctions.showResult(); break;
         case "Backspace": mainFunctions.delete(); break;
