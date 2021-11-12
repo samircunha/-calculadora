@@ -138,7 +138,7 @@ const auxiliaryFunctions = {
         checkResultLength: (number) => {
             let numberInCheck = number.toString();
             if (numberInCheck.length > 15){
-                numberInCheck = numberInCheck.slice(0, 10);
+                numberInCheck = numberInCheck.slice(0, 15);
                 return +(numberInCheck)
             }else{
                 return number
