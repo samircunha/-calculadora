@@ -12,6 +12,10 @@ body{
     border-radius: 10px;
 }
 
+.calculator-body div{
+    cursor: pointer;
+}
+
 .calculator-body__panel{
     width: 400px;
     height: 120px;
