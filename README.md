@@ -10,4 +10,4 @@ OBS: A partir deste projeto passei a utilizar a lingua inglesa na hora de codar.
 
 🖱️ [Calculadora](https://calculadorabysamir.netlify.app/)
 
-![](https://github.com/samircunha/Jogo-da-Velha/blob/main/Jogo-da-velha.png)
+<a href="https://calculadorabysamir.netlify.app/"> <img src="./calculadora.png"></img> </a>
