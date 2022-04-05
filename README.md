@@ -1,12 +1,12 @@
 # Calculadora
 
-Projeto pessoal. Acho que todos aquele que começam a programar, são incentivados a fazer uma calculadora. 
+Este projeto é o básico para quem começa a programar: Uma calculadora. Tentei abranger todas as partes de uma calculadora básica e agregar um layout visual acessível utilizando uma paleta de cores mais escuras. 
 
-Realizei este projeto com: Javascript, HTML e CSS. 
+Com ele eu busquei agregar aos meus conhecimentos de utilização das linguagens de JavaScript, HTML, CSS e também de lógica de programação. 
 
 Fiz ela responsiva para poder ser utilizada em aparelhos celulares com telas menores. 
 
-OBS: A partir deste projeto passei a utilizar a lingua inglesa na hora de codar. 
+OBS: A partir deste projeto passei a codar utilizando inglês nas funcões, variáveis, etc. 
 
 🖱️ [Calculadora](https://calculadorabysamir.netlify.app/)
 
