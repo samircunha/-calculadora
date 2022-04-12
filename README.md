@@ -1,17 +1,5 @@
 
 
-
-Com ele eu busquei acrescentar aos meus conhecimentos a lógica de programação e astechs: JavaScript, HTML, CSS.
-
-Fiz ela responsiva para poder ser utilizada em aparelhos celulares com telas menores. 
-
-OBS: A partir deste projeto passei a codar utilizando inglês nas funcões, variáveis, etc. 
-
-🖱️ [Calculadora](https://calculadorabysamir.netlify.app/)
-
-<a href="https://calculadorabysamir.netlify.app/"> <img src="./calculadora.png"></img> </a>
-
-
 <h1 align="center"> 
   Calculator 
 </h1>
@@ -56,7 +44,7 @@ This project is made by 99% of programmers: A calculator. I tried to cover every
 ## Layout <a name="-layout" style="text-decoration:none"></a>
 
 ### Page
-<img alt="Page" src="<img src="./calculadora.png">"></img>
+<img src="./calculadora.png">
 
 ---
 
